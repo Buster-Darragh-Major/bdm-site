@@ -1,0 +1,16 @@
+{
+    "header": [
+        {
+            "displayName": "Home",
+            "path": "/"
+        },
+        {
+            "displayName": "Music",
+            "path": "/music"
+        },
+        {
+            "displayName": "Simpsons",
+            "path": "/simpsons"
+        }
+    ]
+}
