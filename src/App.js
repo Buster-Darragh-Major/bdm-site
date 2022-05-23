@@ -4,9 +4,9 @@ import "./App.scss";
 
 function App() {
   return (
-    <div className="flex-col">
+    <div className="root">
       <Header items={configData.header} />
-      <div>Buster's new website baby</div>
+      <div className="flex-grow">Buster's new website baby</div>
     </div>
   );
 }

@@ -1,5 +1,21 @@
-flex-col {
+.flex-col {
   display: flex;
   flex-direction: column;
-  background-color: red;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.root {
+  @extend .flex-col;
 }
