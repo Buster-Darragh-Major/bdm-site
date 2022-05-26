@@ -3,8 +3,11 @@ import React from 'react';
 const TEXT_CURSOR = "_";
 const CURSOR_PERIOD = 500;
 const DELETE_PERIOD = 40;
-const TYPE_PERIOD_MIN = 50;
+const TYPE_PERIOD_MIN = 70;
 const TYPE_PERIOD_MAX = 200;
+const MISTYPE_PERIOD_MIN = 300;
+const MISTYPE_PERIOD_MAX = 600;
+const MISTYPE_LIKELIHOOD = 0.05;
 
 class TypingTitle extends React.Component {
     constructor(props) {
@@ -16,7 +19,9 @@ class TypingTitle extends React.Component {
             currentWord : null,
             isTyping: true, // false for deleting
             tickTimerID: null,
-            showCursor: true
+            showCursor: true,
+            mistype: null,
+            deleteMistype: false
         };
     }
 
@@ -52,7 +57,19 @@ class TypingTitle extends React.Component {
         return Math.floor(Math.random() * (TYPE_PERIOD_MAX - TYPE_PERIOD_MIN + 1) + TYPE_PERIOD_MIN);
     }
 
+    mistypePeriodRandom() {
+        return Math.floor(Math.random() * (MISTYPE_PERIOD_MAX - MISTYPE_PERIOD_MIN + 1) + MISTYPE_PERIOD_MIN);
+    }
+
+    mistype() {
+        var characters = 'abcdefghijklmnopqrstuvwxyz';
+        return characters[Math.floor(Math.random()*characters.length)];
+    }
+
     newTick(period, turnOffCursor) {
+        if (this.tickTimerID) {
+            return;
+        }
         this.tickTimerID = setTimeout(() => {
             this.tickTimerID = null; 
             this.tick();
@@ -75,19 +92,29 @@ class TypingTitle extends React.Component {
             let currentWord = state.currentWord;
             let display = state.display; 
             let isTyping = state.isTyping;
+            let mistype = state.mistype;
+            let deleteMistype = state.deleteMistype;
 
             if (!currentWord) {
                 currentWord = this.chooseWord(currentWord);
             }
 
-            if (isTyping) {
-                display = currentWord.substring(0, Math.min(currentWord.length, display.length + 1));
-                if (display === currentWord) {
-                    this.turnOnCursorFlash();
-                    this.newTick(this.props.titleHangTime, true);
-                    isTyping = false;
+            if (isTyping && !deleteMistype) {
+                if (mistype) {
+                    display += mistype;
+                    mistype = null;
+                    deleteMistype = true;
+                    this.newTick(this.mistypePeriodRandom(), true);
                 } else {
-                    this.newTick(this.typePeriodRandom());
+                    mistype = Math.random() < MISTYPE_LIKELIHOOD ? this.mistype() : null;
+                    display = currentWord.substring(0, Math.min(currentWord.length, display.length + 1));
+                    if (display === currentWord) {
+                        this.turnOnCursorFlash();
+                        this.newTick(this.props.titleHangTime, true);
+                        isTyping = false;
+                    } else {
+                        this.newTick(this.typePeriodRandom());
+                    }
                 }
             } else {
                 display = currentWord.substring(0, Math.max(0, display.length - 1));
@@ -97,14 +124,17 @@ class TypingTitle extends React.Component {
                     currentWord = this.chooseWord(currentWord);
                     isTyping = true;
                 } else {
-                    this.newTick(DELETE_PERIOD);
+                    this.newTick(deleteMistype ? this.typePeriodRandom() : DELETE_PERIOD);
                 }
+                deleteMistype = false;
             }
 
             return { 
                 display: display,
                 isTyping: isTyping,
-                currentWord: currentWord
+                currentWord: currentWord,
+                mistype: mistype,
+                deleteMistype: deleteMistype
             };
         });
     }
