@@ -41,8 +41,11 @@ class TypingTitle extends React.Component {
         this.setState({ showCursor: true });
     }
 
-    chooseWord() {
-        return this.titles[0];
+    chooseWord(currentWord) {
+        var otherTitles = currentWord 
+            ? this.titles.filter(title => title !== currentWord)
+            : this.titles;
+        return otherTitles[Math.floor(Math.random()*otherTitles.length)];
     }
 
     typePeriodRandom() {
@@ -68,12 +71,13 @@ class TypingTitle extends React.Component {
             if (tickTimerID) {
                 return;
             }
+            
             let currentWord = state.currentWord;
             let display = state.display; 
             let isTyping = state.isTyping;
 
             if (!currentWord) {
-                currentWord = this.chooseWord();
+                currentWord = this.chooseWord(currentWord);
             }
 
             if (isTyping) {
@@ -90,6 +94,7 @@ class TypingTitle extends React.Component {
                 if (!display) {
                     this.turnOnCursorFlash();
                     this.newTick(this.props.emptyHangTime, true);
+                    currentWord = this.chooseWord(currentWord);
                     isTyping = true;
                 } else {
                     this.newTick(DELETE_PERIOD);
