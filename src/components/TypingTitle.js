@@ -25,6 +25,11 @@ class TypingTitle extends React.Component {
         this.turnOffCursorFlash();
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.tickTimerID);
+        this.turnOffCursorFlash();
+    }
+
     turnOnCursorFlash() {
         this.cursorTimerID = setInterval(() => {
             this.setState((state) => { return { showCursor: !state.showCursor }; });
@@ -36,21 +41,8 @@ class TypingTitle extends React.Component {
         this.setState({ showCursor: true });
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.tickTimerID);
-        this.turnOffCursorFlash();
-    }
-
     chooseWord() {
         return this.titles[0];
-    }
-
-    typeWord(currentLength, currentWord) {
-        return currentWord.substring(0, Math.min(currentWord.length, currentLength + 1));
-    }
-
-    deleteWord(currentLength, currentWord) {
-        return currentWord.substring(0, Math.max(0, currentLength - 1));
     }
 
     typePeriodRandom() {
@@ -85,7 +77,7 @@ class TypingTitle extends React.Component {
             }
 
             if (isTyping) {
-                display = this.typeWord(display.length, currentWord);
+                display = currentWord.substring(0, Math.min(currentWord.length, display.length + 1));
                 if (display === currentWord) {
                     this.turnOnCursorFlash();
                     this.newTick(this.props.titleHangTime, true);
@@ -94,7 +86,7 @@ class TypingTitle extends React.Component {
                     this.newTick(this.typePeriodRandom());
                 }
             } else {
-                display = this.deleteWord(display.length, currentWord);
+                display = currentWord.substring(0, Math.max(0, display.length - 1));
                 if (!display) {
                     this.turnOnCursorFlash();
                     this.newTick(this.props.emptyHangTime, true);
