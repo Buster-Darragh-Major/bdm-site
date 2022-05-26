@@ -7,7 +7,6 @@ function App() {
     <div className="root">
       <BackgroundImage />
       <ScrollPane />
-      <div className="flex-grow">Buster's new website baby</div>
     </div>
   );
 }

@@ -35,7 +35,7 @@
 .center-child {
   text-align: center;
   * {
-    line-height: 50;
+    line-height: 40;
   }
 }
 
@@ -70,4 +70,5 @@
   @extend .non-selectable;
   color: white;
   font-family: monospace;
+  font-size: large;
 }

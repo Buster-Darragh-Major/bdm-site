@@ -4,7 +4,8 @@ function ScrollPane(props) {
     return (
         <div className="fill-parent center-child">
             <TypingTitle titles={["buster darragh-major"]}
-                titleHangTime="10000" />
+                titleHangTime="2000"
+                emptyHangTime="700" />
         </div>
     );
 }

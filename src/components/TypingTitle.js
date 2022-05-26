@@ -1,9 +1,9 @@
 import React from 'react';
 
 const TEXT_CURSOR = "_";
-const DELETE_PERIOD = 100;
+const DELETE_PERIOD = 40;
 const TYPE_PERIOD_MIN = 50;
-const TYPE_PERIOD_MAX = 1300;
+const TYPE_PERIOD_MAX = 200;
 
 class TypingTitle extends React.Component {
     constructor(props) {
@@ -11,14 +11,16 @@ class TypingTitle extends React.Component {
         this.titles = props.titles;
         this.titleHangTime = props.titleHangTime;
         this.state = {
-            display: "",
+            preDisplay: "",
+            display: TEXT_CURSOR,
             currentWord : null,
-            isTyping: true // false for deleting
+            isTyping: true, // false for deleting
+            timerID: null
         };
     }
 
     componentDidMount() {
-        this.timerID = setInterval(() => this.tick(), TYPE_PERIOD_MIN);
+        this.tick();
     }
 
     componentWillUnmount() {
@@ -37,10 +39,28 @@ class TypingTitle extends React.Component {
         return currentWord.substring(0, Math.max(0, currentLength - 1));
     }
 
+    typePeriodRandom() {
+        return Math.floor(Math.random() * (TYPE_PERIOD_MAX - TYPE_PERIOD_MIN + 1) + TYPE_PERIOD_MIN);
+    }
+
+    newTick(period) {
+        this.timerID = setTimeout(() => {
+            this.timerID = null; 
+            this.tick()
+        }, period);
+    }
+
     tick() {
         this.setState((state) => {
+            // We check because in strict mode react runs setState calls twice.. am I right??
+            // Store in object as opposed to state because state tier ID would be replicated,
+            // causing multiple calls to api.
+            let timerID = this.timerID;
+            if (timerID) {
+                return;
+            }
             let currentWord = state.currentWord;
-            let display = state.display; 
+            let preDisplay = state.preDisplay; 
             let isTyping = state.isTyping;
 
             if (!currentWord) {
@@ -48,25 +68,26 @@ class TypingTitle extends React.Component {
             }
 
             if (isTyping) {
-                display = this.typeWord(display.length, currentWord);
-                if (display === currentWord) {
-                    // this.timerID = setTimeout(() => {
-                    //     this.tick()
-                    // }, this.props.titleHangTime);
+                preDisplay = this.typeWord(preDisplay.length, currentWord);
+                if (preDisplay === currentWord) {
+                    this.newTick(this.props.titleHangTime);
                     isTyping = false;
+                } else {
+                    this.newTick(this.typePeriodRandom());
                 }
             } else {
-                display = this.deleteWord(display.length, currentWord);
-                if (!display) {
-                    // this.timerID = setTimeout(() => {
-                    //     this.tick()
-                    // }, this.props.titleHangTime);
+                preDisplay = this.deleteWord(preDisplay.length, currentWord);
+                if (!preDisplay) {
+                    this.newTick(this.props.emptyHangTime);
                     isTyping = true;
+                } else {
+                    this.newTick(DELETE_PERIOD);
                 }
             }
 
             return { 
-                display: display,
+                preDisplay: preDisplay,
+                display: preDisplay + TEXT_CURSOR,
                 isTyping: isTyping,
                 currentWord: currentWord
             };
