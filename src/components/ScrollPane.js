@@ -10,7 +10,13 @@ function ScrollPane(props) {
                     emptyHangTime="1700" />
             </div>
             <div className="padding-xl">
-                <Card data="heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi" />
+                <Card data={["heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi", 
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi",
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi",
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi",
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi",
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi",
+                    "heya weya hdfbshi heya weya hdfbshi heya weya hdfbshi"]} />
             </div>
         </div>
     );

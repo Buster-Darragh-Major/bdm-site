@@ -1,4 +1,4 @@
-import BackgroundImage from "./components/BackgroundImage";
+import BackgroundImages from "./components/BackgroundImages";
 import ScrollPane from "./components/ScrollPane.js";
 import Config from "./config.json";
 import "./App.scss";
@@ -6,7 +6,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="root">
-      <BackgroundImage />
+      <BackgroundImages />
       <ScrollPane titles={Config.titles} />
     </div>
   );

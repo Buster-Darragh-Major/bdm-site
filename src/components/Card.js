@@ -1,5 +1,5 @@
 function Card(props) {
-    const data = [props.data];
+    const data = typeof props.data != "object" ? [props.data] : props.data;
     return (
         <div className="card">
             {
