@@ -1,28 +1,22 @@
 import GetImage from "../ImageSource.js";
 import useScrollPosition from "../hooks/useScrollPosition.js";
 
-/* TODO:
-when user scrolls on foreground content, background content should scroll halkf as fast, meaning there can be an alernarting
-card block layou in the foreground showiung an image every second block, which will be fully transparent, the "off" or even
-blocks will be fill colour.
-*/
-
 function BackgroundImages(props) {
     const pos = useScrollPosition(0.5);
+    const image1Src = GetImage(0);
+    const image2Src = GetImage(1);
+    const image3Src = GetImage(2);
 
     return (
         <div className="background-image-container" style={{ "willChange": "transform", "transform": `translateY(${pos}px)` }}>
-            <img src={GetImage()}
+            <img src={image1Src}
                 alt="bass">
             </img>
-            <img src={GetImage()}
-                alt="bass">
+            <img src={image2Src}
+                alt="kitty">
             </img>
-            <img src={GetImage()}
-                alt="bass">
-            </img>
-            <img src={GetImage()}
-                alt="bass">
+            <img src={image3Src}
+                alt="me and jess">
             </img>
         </div>
     );

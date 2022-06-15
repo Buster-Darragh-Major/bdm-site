@@ -4,9 +4,10 @@ function importAll(r) {
     return images;
 }
 
-function GetImage() {
+function GetImage(index) {
     const images = importAll(require.context('./res', false, /\.(png|jpe?g|svg)$/));
-    const randomImage = Object.keys(images)[Math.floor(Math.random()*Object.keys(images).length)]
+    index = index =! null ? index : Math.floor(Math.random()*Object.keys(images).length);
+    const randomImage = Object.keys(images)[index];
     return images[randomImage];
 }
 

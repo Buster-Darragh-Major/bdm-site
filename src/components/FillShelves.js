@@ -2,32 +2,32 @@ import TypingTitle from "./TypingTitle.js";
 
 function FillShelves(props) {
     return (
-        <div className="fill-parent">
-            <div className="fill-parent center-child">
+        <div>
+            <section className="center-child fill-view">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
-            </div>
-            <div className="fill-parent center-child" style={{"backgroundColor": "red"}}>
+            </section>
+            <section className="center-child fill-view background-red">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
-            </div>
-            <div className="fill-parent center-child">
+            </section>
+            <section className="center-child fill-view">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
-            </div>
-            <div className="fill-parent center-child" style={{"backgroundColor": "red"}}>
+            </section>
+            <section className="center-child fill-view background-green">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
-            </div>
-            <div className="fill-parent center-child">
+            </section>
+            <section className="center-child fill-view">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
-            </div>
+            </section>
         </div>
     );
 }
