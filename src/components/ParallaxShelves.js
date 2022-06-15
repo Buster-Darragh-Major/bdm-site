@@ -1,14 +1,13 @@
 import BackgroundImages from "../components/BackgroundImages";
-import ScrollPane from "../components/ScrollPane.js";
-import { ParallaxProvider } from 'react-scroll-parallax';
+import FillShelves from "./FillShelves.js";
 import "../App.scss";
 
 function ParallaxShelves(props) {
   return (
-    <ParallaxProvider>
-        <BackgroundImages scrollSpeed={props.config.parallaxScrollSpeed} />
-        <ScrollPane titles={props.config.titles} />
-    </ParallaxProvider>
+    <div className="fill-parent">
+      <BackgroundImages scrollSpeed={props.config.parallaxScrollSpeed} />
+      <FillShelves titles={props.config.titles} />
+    </div>
   );
 }
 

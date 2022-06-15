@@ -41,10 +41,6 @@
 
 // Spacing
 
-.relative-scroll {
-  overflow-y: scroll;
-}
-
 .padding-xs {
   padding: 3px;
 }
@@ -98,17 +94,4 @@
   font-family: monospace;
   font-size: large;
   white-space: pre-wrap;
-}
-
-// Card
-
-.card {
-  background-color: whitesmoke;
-  opacity: 15%;
-  padding: 5px;
-  border-radius: 5px;
-
-  * {
-    opacity: 100%;
-  }
 }
