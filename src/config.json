@@ -25,5 +25,6 @@
         "one time i squatted 190kg",
         "boys, boys, boys, we like boys in cars",
         "this website is built in react and so far i've found it okay"
-    ]
+    ],
+    "parallaxScrollSpeed": -100
 }

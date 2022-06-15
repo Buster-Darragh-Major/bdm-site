@@ -1,3 +1,4 @@
+import { useParallax } from 'react-scroll-parallax';
 import GetImage from "../ImageSource.js";
 
 /* TODO:
@@ -7,8 +8,15 @@ blocks will be fill colour.
 */
 
 function BackgroundImages(props) {
+    const parallax = useParallax({
+        speed: props.scrollSpeed,
+    });
+
     return (
-        <div className="background-image-container">
+        <div ref={parallax.ref} className="background-image-container">
+            <img src={GetImage()}
+                alt="bass">
+            </img>
             <img src={GetImage()}
                 alt="bass">
             </img>
