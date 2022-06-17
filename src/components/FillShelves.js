@@ -8,7 +8,7 @@ function FillShelves(props) {
                     titleHangTime="4000"
                     emptyHangTime="1700" />
             </section>
-            <section className="center-child fill-view scroll-snap-child background-red">
+            <section className="center-child fill-view scroll-snap-child background-navy">
                 <TypingTitle titles={props.titles}
                     titleHangTime="4000"
                     emptyHangTime="1700" />
