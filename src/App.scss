@@ -2,14 +2,25 @@
 
 // Flex layout
 
-#root {
+.view-box {
   width: 100vw;
   height: 100vh;
-  scrollbar-width: none;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+html {
+  @extend .view-box;
+}
+
+#root {
+  @extend .view-box;
 }
 
 .root {
-  @extend #root;
+  @extend .view-box;
 }
 
 .flex-col {
@@ -80,7 +91,6 @@
 }
 
 .background-image-container {
-  @extend .fill-parent;
   z-index: -1;
   position: absolute;
   font-size: 0;
@@ -97,6 +107,7 @@
 
 .scroll-snap-container {
   scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
 }
 
 .scroll-snap-child {

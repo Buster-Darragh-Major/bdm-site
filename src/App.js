@@ -5,7 +5,7 @@ import ParallaxShelves from "./components/ParallaxShelves";
 function App() {
   return (
       <div className="root">
-        <ParallaxShelves config={Config} />
+        <ParallaxShelves config={Config} id={0} />
       </div>
   );
 }

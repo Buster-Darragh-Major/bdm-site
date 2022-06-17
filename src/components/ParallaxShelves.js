@@ -4,8 +4,8 @@ import "../App.scss";
 
 function ParallaxShelves(props) {
   return (
-    <div className="fill-parent">
-      <BackgroundImages scrollSpeed={props.config.parallaxScrollSpeed} />
+    <div id={`parallaxShelves-${props.id}`} className="fill-parent scrollable scroll-snap-container">
+      <BackgroundImages containerId={`parallaxShelves-${props.id}`} scrollSpeed={props.config.parallaxScrollSpeed} />
       <FillShelves titles={props.config.titles} />
     </div>
   );
