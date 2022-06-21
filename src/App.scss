@@ -1,7 +1,5 @@
 @import "variables.scss";
 
-// Flex layout
-
 .view-box {
   width: 100vw;
   height: 100vh;
@@ -24,24 +22,6 @@ html {
   @extend .view-box;
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-row {
-  display: flex;
-}
-
-.flex-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-grow {
-  flex-grow: 1;
-}
-
 .fill-parent {
   width: 100%;
   height: 100%;
@@ -52,11 +32,16 @@ html {
   height: 100vh;
 }
 
-.center-child {
-  text-align: center;
-  * {
-    line-height: 40;
-  }
+// Flex
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @extend .flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // Spacing
@@ -117,6 +102,10 @@ html {
 
 // Text
 
+.x-center-text {
+  text-align: center;
+}
+
 .non-selectable {
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
@@ -126,7 +115,7 @@ html {
 
 .typing-title {
   @extend .non-selectable;
-  color: #f3ebe1;
+  color: $offWhite;
   font-family: monospace;
   font-size: large;
   white-space: pre-wrap;
