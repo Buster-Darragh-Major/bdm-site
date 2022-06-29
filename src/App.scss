@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "Variables.scss";
 
 .view-box {
   width: 100vw;
@@ -42,6 +42,20 @@ html {
   @extend .flex;
   justify-content: center;
   align-items: center;
+}
+
+// Absolute
+
+.position-absolute {
+  position: absolute;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.bottom-20 {
+  bottom: 20px;
 }
 
 // Spacing
@@ -102,6 +116,30 @@ html {
 
 // Text
 
+.font-smaller {
+  font-size: smaller;
+}
+
+.font-small {
+  font-size: small;
+}
+
+.font-medium {
+  font-size: medium;
+}
+
+.font-large {
+  font-size: large;
+}
+
+.font-larger {
+  font-size: larger;
+}
+
+.off-white {
+  color: $offWhite;
+}
+
 .x-center-text {
   text-align: center;
 }
@@ -115,8 +153,21 @@ html {
 
 .typing-title {
   @extend .non-selectable;
-  color: $offWhite;
+  @extend .off-white;
+  font-size: 30px;
   font-family: monospace;
-  font-size: large;
   white-space: pre-wrap;
+}
+
+// Scroll arrow
+
+.scroll-arrow {
+  @extend .position-absolute; 
+  @extend .bottom-20;
+  @extend .off-white;
+  font-size: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }
