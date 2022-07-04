@@ -7,7 +7,12 @@ export default function useScrollPosition(elementId = "root", scrollFactor = 0) 
     useEffect(() => {
         var element = document.getElementById(elementId);
         function onScroll() {
-            setPosition(element.scrollTop * -1);
+            var newPos = JSON.stringify({
+                position: element.scrollTop * -1 * scrollFactor,
+                isTop: element.scrollTop === 0,
+                isBottom: element.scrollHeight - element.scrollTop === element.clientHeight
+            });
+            setPosition(newPos);
         }
 
         element.addEventListener("scroll", onScroll);
@@ -16,5 +21,5 @@ export default function useScrollPosition(elementId = "root", scrollFactor = 0) 
         };
     }, [elementId, scrollFactor]);
 
-    return position * scrollFactor;
+    return JSON.parse(position);
 }

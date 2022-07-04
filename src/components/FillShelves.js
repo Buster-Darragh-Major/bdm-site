@@ -1,6 +1,5 @@
 import "./ParallaxShelves.scss";
 import TypingTitle from "./TypingTitle.js";
-import ScrollArrowHint from "./ScrollArrowHint.js";
 
 function FillShelves(props) {
     return (
@@ -27,7 +26,6 @@ function FillShelves(props) {
                     
                 </section>
             </div>
-            <ScrollArrowHint />
         </div>
     );
 }

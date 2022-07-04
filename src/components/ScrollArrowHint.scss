@@ -2,11 +2,38 @@
 
 .scroll-arrow {
   @extend .position-absolute; 
-  @extend .bottom-20;
   @extend .off-white;
   font-size: 50px;
   left: 0;
   right: 0;
   margin: auto;
   text-align: center;
+  
+  &--bottom {
+    @extend .bottom-20;
+  }
+
+  &--top {
+    @extend .top-20;
+  }
+}
+
+.hidden {
+  opacity: 0;
+
+  -webkit-transition: opacity 0.3s ease-in;
+     -moz-transition: opacity 0.3s ease-in;
+      -ms-transition: opacity 0.3s ease-in;
+       -o-transition: opacity 0.3s ease-in;
+          transition: opacity 0.3s ease-in;
+}
+
+.visible {
+  opacity: 1;
+
+  -webkit-transition: opacity 0.3s ease-in;
+     -moz-transition: opacity 0.3s ease-in;
+      -ms-transition: opacity 0.3s ease-in;
+       -o-transition: opacity 0.3s ease-in;
+          transition: opacity 0.3s ease-in;
 }

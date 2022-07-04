@@ -3,7 +3,7 @@ import GetImage from "../ImageSource.js";
 import useScrollPosition from "../hooks/useScrollPosition.js";
 
 function BackgroundImages(props) {
-    const pos = useScrollPosition(props.containerId, 0.5);
+    const pos = useScrollPosition(props.containerId, 0.5).position;
     const image1Src = GetImage(0);
     const image2Src = GetImage(1);
     const image3Src = GetImage(2);
