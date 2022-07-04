@@ -1,3 +1,4 @@
+import "./ParallaxShelves.scss";
 import TypingTitle from "./TypingTitle.js";
 import ScrollArrowHint from "./ScrollArrowHint.js";
 

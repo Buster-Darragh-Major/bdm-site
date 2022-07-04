@@ -1,25 +1,20 @@
 @import "Variables.scss";
 
-.view-box {
-  width: 100vw;
-  height: 100vh;
-}
-
 .scrollable {
   overflow-y: scroll;
 }
 
 html {
   overflow-y: hidden;
-  @extend .view-box;
+  @extend .fill-view;
 }
 
 #root {
-  @extend .view-box;
+  @extend .fill-view;
 }
 
 .root {
-  @extend .view-box;
+  @extend .fill-view;
 }
 
 .fill-parent {
@@ -89,31 +84,6 @@ html {
 .background-green {
   background-color: $green;
 }
-
-.background-image-container {
-  z-index: -1;
-  position: absolute;
-  font-size: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-
-  img {
-    @extend .fill-parent;
-    object-fit: cover;
-  }
-}
-
-.scroll-snap-container {
-  scroll-snap-type: y mandatory;
-  overscroll-behavior: contain;
-}
-
-.scroll-snap-child {
-  scroll-snap-align: start;
-}
-
 // Text
 
 .font-smaller {
@@ -149,25 +119,4 @@ html {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
-}
-
-.typing-title {
-  @extend .non-selectable;
-  @extend .off-white;
-  font-size: 30px;
-  font-family: monospace;
-  white-space: pre-wrap;
-}
-
-// Scroll arrow
-
-.scroll-arrow {
-  @extend .position-absolute; 
-  @extend .bottom-20;
-  @extend .off-white;
-  font-size: 50px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
 }

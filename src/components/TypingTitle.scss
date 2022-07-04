@@ -1,0 +1,9 @@
+@import "../App.scss";
+
+.typing-title {
+  @extend .non-selectable;
+  @extend .off-white;
+  font-size: 30px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

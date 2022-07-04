@@ -1,3 +1,4 @@
+import "./ParallaxShelves.scss";
 import BackgroundImages from "../components/BackgroundImages";
 import FillShelves from "./FillShelves.js";
 import "../App.scss";

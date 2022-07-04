@@ -1,0 +1,12 @@
+@import "../App.scss";
+
+.scroll-arrow {
+  @extend .position-absolute; 
+  @extend .bottom-20;
+  @extend .off-white;
+  font-size: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}

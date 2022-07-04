@@ -1,3 +1,4 @@
+import "./TypingTitle.scss";
 import React from 'react';
 
 const TEXT_CURSOR = "_";
