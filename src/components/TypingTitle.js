@@ -142,7 +142,10 @@ class TypingTitle extends React.Component {
 
     render() {
         return (
-            <span className="typing-title">{this.state.display}{this.state.showCursor ? TEXT_CURSOR : " "}</span>
+            <span className="typing-title">
+                <span>{this.state.display}</span>
+                <span className={!this.state.showCursor ? "opacity-0" : ""}>{TEXT_CURSOR}</span>
+            </span>
         );
     }
 }
