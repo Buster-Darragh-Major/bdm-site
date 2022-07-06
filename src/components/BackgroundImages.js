@@ -1,4 +1,4 @@
-import "./BackgroundImages.scss"
+import "./BackgroundImages.scss";
 import GetImage from "../ImageSource.js";
 import useScrollPosition from "../hooks/useScrollPosition.js";
 
