@@ -8,10 +8,10 @@ function ScrollArrowHint(props) {
   const posInfo = useScrollPosition(props.containerId, 1);
   return (
     <div>
-      <div className={`scroll-arrow scroll-arrow--top ${posInfo.isTop ? "hidden" : "visible"}`}>
+      <div className={`scroll-arrow scroll-arrow--top scroll-arrow scroll-arrow--top--${posInfo.isTop ? "hidden" : "visible"}`}>
           <FontAwesomeIcon icon={faAngleUp} />
       </div>
-      <div className={`scroll-arrow scroll-arrow--bottom ${posInfo.isBottom ? "hidden" : "visible"}`}>
+      <div className={`scroll-arrow scroll-arrow--bottom scroll-arrow scroll-arrow--bottom--${posInfo.isBottom ? "hidden" : "visible"}`}>
           <FontAwesomeIcon icon={faAngleDown} />
       </div>
     </div>
