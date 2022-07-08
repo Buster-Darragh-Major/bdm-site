@@ -2,11 +2,11 @@ import "./DotIndicators.scss";
 import useScrollVisible from "../hooks/useScrollVisible";
 
 function DotIndicators(props) {
-    const pos = useScrollVisible(props.scrollContainerId, props.elementsContainerId);
+    const pos = useScrollVisible(props.elementsContainerId, props.threshold);
 
     var dots = [];
     for (var i = 0; i < props.count || 0; i++) {
-        dots.push(<div key={i} className={`dot-indicator ${props.selected === i ? "dot-indicator--selected" : ""}`}></div>);
+        dots.push(<div key={i} className={`dot-indicator ${pos === i ? "dot-indicator--selected" : ""}`}></div>);
     }
 
     return (

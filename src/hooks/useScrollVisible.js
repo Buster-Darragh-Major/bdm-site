@@ -1,26 +1,29 @@
 import {useState, useEffect} from 'react';
 
-export default function useScrollVisible(scrollElementId = "root", elementsElementid = "root") {
+export default function useScrollVisible(elementId = "root", threshold = 0.5) {
     const [visible, setVisible] = useState(0);  
     
     useEffect(() => {
-        const scrollElement = document.getElementById(scrollElementId);
-        const elementsElement = document.getElementById(elementsElementid);
-        const childElements = elementsElement.children;    
-        function onScroll() {
-            var curVisible = 0;
-            for (var i = 0; i < childElements.length; i++) {
-                const rect = childElements[i].getBoundingClientRect();
-                const elemTop = rect.top;
-                curVisible = (elemTop >= 0) ? i : curVisible;
-            }
-            console.log(curVisible);
-            setVisible(curVisible);
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting === true) {
+                    const element = entry.target;
+                    const parent = element.parentNode;                    
+                    const index = Array.prototype.indexOf.call(parent.children, element);
+                    setVisible(index);
+                }
+            });
+        }, { threshold: [threshold] });
+        
+        const elementsElement = document.getElementById(elementId);
+        const childElements = elementsElement.children;
+        for (var i = 0; i < childElements.length; i++) {
+            observer.observe(childElements[i]);
         }
-
-        scrollElement.addEventListener("scroll", onScroll);
         return () => {
-            scrollElement.removeEventListener("scroll", onScroll);
+            for (var i = 0; i < childElements.length; i++) {
+                observer.disconnect(childElements[i]);
+            }
         };
     });
 

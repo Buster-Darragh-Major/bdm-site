@@ -28,7 +28,7 @@ function FillShelves(props) {
                     
                 </section>
             </div>
-            <DotIndicators scrollContainerId={props.containerId} elementsContainerId={sectionContainerId} count={5} selected={2} />
+            <DotIndicators elementsContainerId={sectionContainerId} count={5} threshold={0.8} />
         </div>
     );
 }
