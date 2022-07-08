@@ -1,10 +1,12 @@
 import "./ParallaxShelves.scss";
 import TypingTitle from "./TypingTitle.js";
+import DotIndicators from "./DotIndicators";
 
 function FillShelves(props) {
+    var sectionContainerId = "fillShellvesSectionContainer";
     return (
         <div>
-            <div>
+            <div id={sectionContainerId}>
                 <section className="fill-view scroll-snap-child flex-center">
 
                     <div className="x-center-text padding-l">
@@ -26,6 +28,7 @@ function FillShelves(props) {
                     
                 </section>
             </div>
+            <DotIndicators scrollContainerId={props.containerId} elementsContainerId={sectionContainerId} count={5} selected={2} />
         </div>
     );
 }
