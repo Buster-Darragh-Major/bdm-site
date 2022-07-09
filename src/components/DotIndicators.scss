@@ -24,6 +24,10 @@
         margin-top: 10px;
     }
 
+    &:hover {
+        cursor: pointer;
+    }
+
     &--selected {
         background-color: $offWhite;
     }
