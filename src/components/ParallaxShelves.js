@@ -9,7 +9,7 @@ function ParallaxShelves(props) {
   return (
     <div id={containerID} className="fill-parent">
       <ParallaxBackgroundImages scrollContainerId={shelvesScrollContainerid} scrollSpeed={props.config.parallaxScrollSpeed} />
-      <FillShelves scrollContainerId={shelvesScrollContainerid} titles={props.config.titles} />
+      <FillShelves scrollContainerId={shelvesScrollContainerid} content={props.config.content} />
     </div>
   );
 }

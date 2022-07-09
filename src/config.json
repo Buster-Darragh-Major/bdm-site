@@ -1,30 +1,54 @@
 {
-    "header": [
+    "parallaxScrollSpeed": 0.5,
+    "content": [
         {
-            "displayName": "Home",
-            "path": "/"
+            "name": "titles",
+            "data": {
+                "titles": [
+                    "buster darragh-major",
+                    "beep st.",
+                    "mum whip",
+                    "i'm a software developer as well i suppose",
+                    "brazilian jiu jitsu enjoyer",
+                    "swans is my favourite band",
+                    "i owned a nissan pulsar once",
+                    "i have a girlfriend, her name is jess",
+                    "one time i squatted 190kg",
+                    "boys, boys, boys, we like boys in cars",
+                    "this website is built in react and so far i've found it okay"
+                ]
+            }
         },
         {
-            "displayName": "Music",
-            "path": "/music"
-        },
-        {
-            "displayName": "Simpsons",
-            "path": "/simpsons"
+            "name": "mediaLinks",
+            "data": {
+                "mediaLinks": [
+                    {
+                        "name": "linkedIn",
+                        "displayName": "LinkedIn",
+                        "icon": "linkedin-in",
+                        "url": "https://www.linkedin.com/in/buster-darragh-major-85930896/"
+                    },
+                    {
+                        "name": "instagram",
+                        "displayName": "Instagram",
+                        "icon": "instagram",
+                        "url": "https://www.instagram.com/_de_la_riva_sweep/"
+                    },
+                    {
+                        "name": "github",
+                        "displayName": "GitHub",
+                        "icon": "github",
+                        "url": "https://github.com/Buster-Darragh-Major"
+                    },
+                    {
+                        "name": "lastfm",
+                        "displayName": "Last.fm",
+                        "icon": "lastfm",
+                        "url": "https://www.last.fm/user/repoman63"
+                    }
+                ]
+            }
         }
-    ],
-    "titles": [
-        "buster darragh-major",
-        "beep st.",
-        "mum whip",
-        "i'm a software developer as well i suppose",
-        "brazilian jiu jitsu enjoyer",
-        "swans is my favourite band",
-        "i owned a nissan pulsar once",
-        "i have a girlfriend, her name is jess",
-        "one time i squatted 190kg",
-        "boys, boys, boys, we like boys in cars",
-        "this website is built in react and so far i've found it okay"
-    ],
-    "parallaxScrollSpeed": 0.5
+    ]
 }

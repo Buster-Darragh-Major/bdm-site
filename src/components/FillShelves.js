@@ -3,13 +3,14 @@ import TypingTitle from "./TypingTitle.js";
 import DotIndicators from "./DotIndicators";
 
 function FillShelves(props) {
-    var scrollContainerId = props.scrollContainerId;
+    const scrollContainerId = props.scrollContainerId;
+    const content = props.content;
     return (
         <div className="fill-parent">
             <div id={scrollContainerId} className="fill-parent scrollable scroll-snap-container">
                 <section className="fill-parent scroll-snap-child flex-center">
                     <div className="x-center-text padding-xl">
-                        <TypingTitle titles={props.titles}
+                        <TypingTitle titles={content[0].data[content[0].name]}
                             titleHangTime="4000"
                             emptyHangTime="1700" />
                     </div>
