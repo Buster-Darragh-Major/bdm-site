@@ -24,9 +24,7 @@ function DotIndicators(props) {
 
     return (
         <div className="dot-indicators-container">
-            <div className="dot-indicator-set">
-                {dots}
-            </div>
+            {dots}
         </div>
     );
 }

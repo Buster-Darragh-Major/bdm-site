@@ -8,7 +8,7 @@ function FillShelves(props) {
         <div className="fill-parent">
             <div id={scrollContainerId} className="fill-parent scrollable scroll-snap-container">
                 <section className="fill-parent scroll-snap-child flex-center">
-                    <div className="x-center-text padding-l">
+                    <div className="x-center-text padding-xl">
                         <TypingTitle titles={props.titles}
                             titleHangTime="4000"
                             emptyHangTime="1700" />
