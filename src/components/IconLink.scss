@@ -1,0 +1,34 @@
+@import "../App.scss";
+
+.icon-link-container {
+    @extend .link-remove-underline;
+    position: relative;
+    display: grid;
+    color: $offWhite;
+
+    &:visited {
+        color: $offWhite;
+    }
+    
+    &:hover > :nth-child(1) {
+        animation: wipe 0.3s ease-out normal forwards;
+    }
+}
+
+.icon-link-wipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: $offWhite;
+}
+
+@keyframes wipe {
+    0% {
+        right: 100%;
+    } 
+    100% {
+        right: 0;
+    }
+}

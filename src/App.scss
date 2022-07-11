@@ -128,3 +128,10 @@ html {
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 }
+
+.link-remove-underline {
+  &:link { text-decoration: none; }
+  &:visited { text-decoration: none; }
+  &:hover { text-decoration: none; }
+  &:active { text-decoration: none; }
+}

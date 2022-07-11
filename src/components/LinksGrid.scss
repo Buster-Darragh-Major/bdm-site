@@ -1,2 +1,13 @@
 @import "../App.scss";
 
+.links-grid-container {
+    @extend .fill-parent;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+}
+
+.links-grid-item {
+    justify-self: stretch;
+}
