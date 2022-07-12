@@ -2,33 +2,31 @@
 
 .icon-link-container {
     @extend .link-remove-underline;
+    @extend .padding-l;
     position: relative;
     display: grid;
     color: $offWhite;
+    background: linear-gradient(to left, $green 50%, $darkGreen 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid $offWhite;
+    margin: 0;
 
     &:visited {
         color: $offWhite;
     }
     
-    &:hover > :nth-child(1) {
-        animation: wipe 0.3s ease-out normal forwards;
+    &:hover {
+        background-position: left bottom;
     }
-}
 
-.icon-link-wipe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 5;
-    background-color: $offWhite;
-}
+    span {
+        color: $offWhite;
+    }
 
-@keyframes wipe {
-    0% {
-        right: 100%;
-    } 
-    100% {
-        right: 0;
+    svg {
+        color: $offWhite;
     }
 }

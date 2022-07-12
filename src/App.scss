@@ -1,5 +1,9 @@
 @import "Variables.scss";
 
+*{
+  box-sizing: border-box;
+}
+
 .scrollable {
   overflow-y: scroll;
 }

@@ -43,7 +43,7 @@
                     },
                     {
                         "name": "lastfm",
-                        "displayName": "Last.fm",
+                        "displayName": "last.fm",
                         "icon": "lastfm",
                         "url": "https://www.last.fm/user/repoman63"
                     }
