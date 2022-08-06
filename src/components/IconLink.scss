@@ -6,27 +6,26 @@
     position: relative;
     display: grid;
     color: $offWhite;
-    background: linear-gradient(to left, $green 50%, $darkGreen 50%);
+    background: linear-gradient(to left, $green 50%, $offWhite 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    margin-left: 10px;
     transition: all 0.3s ease;
-    border: 1px solid $offWhite;
+    border: 1.5px solid $offWhite;
     margin: 0;
-
-    &:visited {
-        color: $offWhite;
-    }
+    animation: colour-change-out 0.3s ease forwards;
     
     &:hover {
         background-position: left bottom;
+        animation: colour-change-in 0.3s ease forwards;
     }
 
-    span {
-        color: $offWhite;
+    @keyframes colour-change-in {
+        from { color: $offWhite; }
+        to { color: $green; }
     }
 
-    svg {
-        color: $offWhite;
+    @keyframes colour-change-out {
+        from { color: $green; }
+        to { color: $offWhite; }
     }
 }
