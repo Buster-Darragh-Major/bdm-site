@@ -5,7 +5,8 @@ $animation-time: 0.3s;
 .icon-link-container {
     @extend .link-remove-underline;
     @extend .flex-center;
-    padding: $sp-l;
+    @extend .non-selectable;
+    padding: $sp-s;
     position: relative;
     color: $off-white;
     background: linear-gradient(to left, $green 50%, $off-white 50%);
@@ -32,14 +33,29 @@ $animation-time: 0.3s;
         background-position: left bottom;
         animation: colour-change-in $animation-time ease forwards;
     }
+}
 
-    @keyframes colour-change-in {
-        from { color: $off-white; }
-        to { color: $green; }
+// Tablet+
+@media (min-width: $tablet-width-min) {
+    .icon-link-container > svg {
+        height: $ft-xxl;
     }
+}
 
-    @keyframes colour-change-out {
-        from { color: $green; }
-        to { color: $off-white; }
+// Wide screen+
+@media (min-width: 800px) {
+    .icon-link-container > span {
+        margin-left: $sp-xxl;
     }
+}
+
+// animation
+@keyframes colour-change-in {
+    from { color: $off-white; }
+    to { color: $green; }
+}
+
+@keyframes colour-change-out {
+    from { color: $green; }
+    to { color: $off-white; }
 }

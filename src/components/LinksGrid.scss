@@ -2,12 +2,26 @@
 
 .links-grid-container {
     @extend .fill-parent;
-    padding: $sp-xl;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: $sp-m;
 }
 
 .links-grid-item {
     justify-self: stretch;
+}
+
+// Tablet+
+@media (min-width: $tablet-width-min) {
+    .links-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: $sp-xl;
+    }
+}
+
+// Phone
+@media (max-width: $phone-width-max) {
+    .links-grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        padding: $sp-xl $sp-m;
+    }
 }
