@@ -4,9 +4,9 @@ $animation-time: 0.3s;
 
 .icon-link-container {
     @extend .link-remove-underline;
+    @extend .flex-center;
     padding: $sp-l;
     position: relative;
-    display: grid;
     color: $off-white;
     background: linear-gradient(to left, $green 50%, $off-white 50%);
     background-size: 200% 100%;
@@ -15,6 +15,19 @@ $animation-time: 0.3s;
     border: $outline-thickness solid $off-white;
     animation: colour-change-out $animation-time ease forwards;
     
+    svg {
+        height: $ft-xl;
+    }
+
+    span {
+        font-size: $ft-l;
+        margin-left: $sp-l;
+    }
+
+    &.icon-container {
+        font-size: $ft-xl;
+    }
+
     &:hover {
         background-position: left bottom;
         animation: colour-change-in $animation-time ease forwards;
