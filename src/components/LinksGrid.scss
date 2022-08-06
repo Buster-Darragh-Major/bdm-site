@@ -2,10 +2,10 @@
 
 .links-grid-container {
     @extend .fill-parent;
-    padding: 40px;
+    padding: $sp-xl;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: $sp-m;
 }
 
 .links-grid-item {

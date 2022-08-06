@@ -2,8 +2,8 @@
 
 .typing-title {
   @extend .non-selectable;
-  @extend .off-white;
-  font-size: 30px;
+  color: $off-white;
+  font-size: $ft-l;
   font-family: monospace;
   white-space: pre-wrap;
 }

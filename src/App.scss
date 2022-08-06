@@ -1,6 +1,6 @@
 @import "Variables.scss";
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -43,48 +43,27 @@ html {
   align-items: center;
 }
 
-// Absolute
-
-.position-absolute {
-  position: absolute;
-}
-
-.bottom-0 {
-  bottom: 0;
-}
-
-.bottom-20 {
-  bottom: 20px;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.top-20 {
-  top: 20px;
-}
-
 // Spacing
 
 .padding-xs {
-  padding: 3px;
+  padding: $sp-xs;
 }
 
+
 .padding-s {
-  padding: 5px;
+  padding: $sp-s;
 }
 
 .padding-m {
-  padding: 9px;
+  padding: $sp-m;
 }
 
 .padding-l {
-  padding: 15px;
+  padding: $sp-l;
 }
 
 .padding-xl {
-  padding: 24px;
+  padding: $sp-xl;
 }
 
 // Background
@@ -96,31 +75,8 @@ html {
 .background-green {
   background-color: $green;
 }
+
 // Text
-
-.font-smaller {
-  font-size: smaller;
-}
-
-.font-small {
-  font-size: small;
-}
-
-.font-medium {
-  font-size: medium;
-}
-
-.font-large {
-  font-size: large;
-}
-
-.font-larger {
-  font-size: larger;
-}
-
-.off-white {
-  color: $offWhite;
-}
 
 .x-center-text {
   text-align: center;

@@ -1,31 +1,32 @@
 @import "../App.scss";
 
+$animation-time: 0.3s;
+
 .icon-link-container {
     @extend .link-remove-underline;
-    @extend .padding-l;
+    padding: $sp-l;
     position: relative;
     display: grid;
-    color: $offWhite;
-    background: linear-gradient(to left, $green 50%, $offWhite 50%);
+    color: $off-white;
+    background: linear-gradient(to left, $green 50%, $off-white 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all 0.3s ease;
-    border: 1.5px solid $offWhite;
-    margin: 0;
-    animation: colour-change-out 0.3s ease forwards;
+    transition: all $animation-time ease;
+    border: $outline-thickness solid $off-white;
+    animation: colour-change-out $animation-time ease forwards;
     
     &:hover {
         background-position: left bottom;
-        animation: colour-change-in 0.3s ease forwards;
+        animation: colour-change-in $animation-time ease forwards;
     }
 
     @keyframes colour-change-in {
-        from { color: $offWhite; }
+        from { color: $off-white; }
         to { color: $green; }
     }
 
     @keyframes colour-change-out {
         from { color: $green; }
-        to { color: $offWhite; }
+        to { color: $off-white; }
     }
 }

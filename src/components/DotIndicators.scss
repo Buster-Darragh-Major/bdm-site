@@ -1,8 +1,8 @@
 @import "../App.scss";
 
 .dot-indicators-container {
-    @extend .padding-m;
     position: absolute;
+    padding: $sp-m;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -11,22 +11,22 @@
 }
 
 .dot-indicator {
-    width: 1em;
-    height: 1em;
+    width: $sp-m;
+    height: $sp-m;
     border-radius: 50%;
-    border: 1.5px solid $offWhite;
+    border: $outline-thickness solid $off-white;
 
     &:hover {
         cursor: pointer;
     }
 
     &--selected {
-        background-color: $offWhite;
+        background-color: $off-white;
     }
 }
 
 // Tablet+
-@media (min-width: 481px) {
+@media (min-width: $tablet-width-min) {
     .dot-indicators-container {
         flex-direction: column;
         right: 0;
@@ -35,12 +35,12 @@
     }
 
     .dot-indicator + .dot-indicator {
-        margin-top: 1em;
+        margin-top: $sp-m;
     }
 }
 
 // Phone
-@media (max-width: 480px) {
+@media (max-width: $phone-width-max) {
     .dot-indicators-container {
       flex-direction: row;
       bottom: 0;
@@ -49,6 +49,6 @@
     }
 
     .dot-indicator + .dot-indicator {
-        margin-left: 1em;
+        margin-left: $sp-m;
     }
 }
