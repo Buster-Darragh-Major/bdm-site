@@ -20,6 +20,13 @@
             }
         },
         {
+            "name": "lastfm",
+            "data": {
+                "apiKey": "d22b78878dae20222165cbca4b0ef8d2",
+                "username": "repoman63"
+            }
+        },
+        {
             "name": "mediaLinks",
             "data": {
                 "mediaLinks": [

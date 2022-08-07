@@ -1,0 +1,40 @@
+@import "../App.scss";
+
+.grid-tiles-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
+
+.grid-tile {
+    position: relative;
+
+    img {
+        white-space: nowrap;
+    }
+}
+
+.grid-tile-overlay {
+    background-color: $opacity-black;
+    color: $off-white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: tile-hover-out 0.3s ease forwards;
+
+    &:hover {
+        animation: tile-hover-in 0.3s ease forwards;
+    }
+}
+
+@keyframes tile-hover-in {
+    from { opacity: 0; }
+    to { opacity: 60%; }
+}
+
+@keyframes tile-hover-out {
+    from { opacity: 60%; }
+    to { opacity: 0; }
+}

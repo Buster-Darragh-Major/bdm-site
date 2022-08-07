@@ -1,6 +1,7 @@
 import "./ParallaxShelves.scss";
 import TypingTitle from "./TypingTitle.js";
 import LinksGrid from "./LinksGrid.js";
+import LastFm from "./LastFm";
 import DotIndicators from "./DotIndicators";
 
 function FillShelves(props) {
@@ -17,14 +18,16 @@ function FillShelves(props) {
                     </div>
                 </section>
                 <section className="fill-view scroll-snap-child background-navy">
-                    
+                <div className="fill-parent x-center-text">
+                        <LastFm links={content[1].data[content[1].name]} />
+                    </div>
                 </section>
                 <section className="fill-view scroll-snap-child">
                     
                 </section>
                 <section className="fill-view scroll-snap-child background-green">
                     <div className="fill-parent x-center-text">
-                        <LinksGrid links={content[1].data[content[1].name]} />
+                        <LinksGrid links={content[2].data[content[2].name]} />
                     </div>
                 </section>
                 <section className="fill-view scroll-snap-child">
