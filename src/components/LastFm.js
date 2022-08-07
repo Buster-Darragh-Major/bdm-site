@@ -17,13 +17,20 @@ function LastFm(props) {
 
     let albums = [];
     state.topAlbums.forEach((topAlbum, i) => {
+        console.log(topAlbum);
         albums.push(
             <div className="grid-tile" key={i}>
-                <div className="grid-tile-overlay">
-                    <div>{topAlbum.artist.name}</div>
-                    <div>{topAlbum.name}</div>
-                </div>
-                <img src={topAlbum.image.find(img => img.size === "large")["#text"]} alt={`${topAlbum.artist.name} - ${topAlbum.name}`}></img>
+                <a href={topAlbum.url} rel="noopener noreferrer" target="_blank">
+                    <div className="grid-tile-overlay">
+                        <div>
+                            <div>{`${topAlbum.artist.name}:`}</div>
+                            <div>{topAlbum.name}</div>
+                            <br/>
+                            <div>{`${topAlbum.playcount} plays`}</div>
+                        </div>
+                    </div>
+                    <img src={topAlbum.image.find(img => img.size === "large")["#text"]} alt={`${topAlbum.artist.name} - ${topAlbum.name}`}></img>
+                </a>
             </div>
         )
     });

@@ -2,18 +2,28 @@
 
 .grid-tiles-container {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .grid-tile {
+    a {
+        @extend .fill-parent;
+        display: block;
+    }
+
     position: relative;
+    aspect-ratio: 1/1;
+    display: block;
 
     img {
-        white-space: nowrap;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }
 
 .grid-tile-overlay {
+    @extend .flex-center;
     background-color: $opacity-black;
     color: $off-white;
     position: absolute;
