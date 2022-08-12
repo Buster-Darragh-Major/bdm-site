@@ -1,8 +1,23 @@
 @import "../App.scss";
 
-.grid-tiles-container {
+.lastfm-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.lastfm-title {
+    color: $off-white;
+    font-size: $ft-xl;
+    grid-column: span 3;
+}
+
+.grid-tiles-container {
+    grid-row: 2 / 5;
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .grid-tile {
@@ -47,4 +62,10 @@
 @keyframes tile-hover-out {
     from { opacity: 60%; }
     to { opacity: 0; }
+}
+
+.lastfm-currently-listening {
+    color: $off-white;
+    grid-column: 4;
+    grid-row: 2 / 5;
 }
