@@ -62,14 +62,19 @@ function RenderRecentTracks(recentTracks) {
     let tracks = [];
 
     recentTracks.forEach((track, i) => {
-        //debugger;
-        tracks.push(<div key={i}>
-            <div>{track.name}</div>
-            <div>{track.artist["#text"]}</div>
-            <div>{track.album["#text"]}</div>
-            <div>{TimestampToHumanReadable(track.date.uts)}</div>
-            <img src={track.image.find(img => img.size === "medium")["#text"]} alt={`${track.artist.name} - ${track.name}`}></img>
-        </div>);
+        let nowPlaying = track["@attr"]?.nowplaying;
+        tracks.push(
+            <a key={i} className="lastfm-song" href={track.url} rel="noopener noreferrer" target="_blank">
+                <div className="lastfm-img-container">
+                    <img src={track.image.find(img => img.size === "medium")["#text"]} alt={`${track.artist.name} - ${track.name}`}></img>
+                </div>
+                <div className="lastfm-song-info">
+                    <div className="lastfm-song-name">{track.name}rg rfr gfd g frhgfrhger hgrehg trh ni</div>
+                    <div className="lastfm-artist-name">{track.artist["#text"]}</div>
+                    <div className="lastfm-album-name">{track.album["#text"]}</div>
+                    <div className="lastfm-time-played">{nowPlaying ? "Now Playing!" : TimestampToHumanReadable(track.date?.uts)}</div>
+                </div>
+            </a>);
     });
 
     return tracks;
