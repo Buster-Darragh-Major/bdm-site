@@ -18,7 +18,7 @@ function FillShelves(props) {
                     </div>
                 </section>
                 <section className="fill-view scroll-snap-child background-navy">
-                <div className="fill-parent x-center-text">
+                    <div className="fill-parent x-center-text padding-xl">
                         <LastFm links={content[1].data[content[1].name]} />
                     </div>
                 </section>

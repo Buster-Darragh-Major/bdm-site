@@ -1,9 +1,10 @@
 @import "../App.scss";
 
 .lastfm-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.5fr repeat(4, 1fr);
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     
     * {
@@ -15,25 +16,16 @@
 .lastfm-title {
     color: $off-white;
     font-size: $ft-xl;
-    grid-column: span 3;
 }
 
 .grid-tiles-container {
-    grid-row: 2 / 5;
-    grid-column: span 3;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 
-@media (min-aspect-ratio: 9/7) {
+@media (min-aspect-ratio: 1/1) {
     .grid-tiles-container {
         grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-@media (max-aspect-ratio: 7/9) {
-    .grid-tiles-container {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -50,7 +42,6 @@
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
     }
 }
 
@@ -82,10 +73,8 @@
 }
 
 .lastfm-currently-listening {
-    grid-column: 4;
-    grid-row: 2 / 5;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 
@@ -98,7 +87,7 @@
     display: flex;
 
     & + & {
-        margin-top: $sp-l;
+        margin-left: $sp-l;
     }
 }
 
@@ -121,4 +110,8 @@
 
 .lastfm-time-played {
     font-size: $ft-ms;
+}
+
+.lastfm-user-info {
+    color: $off-white;
 }

@@ -27,7 +27,7 @@ function LastFm(props) {
 
     return (
         <div className="lastfm-container">
-            <div className="lastfm-title">What I've been listening to</div>
+            <div className="lastfm-title">My last month in music</div>
             <div className="grid-tiles-container">
                 { RenderAlbums(state.topAlbums) }
             </div>
@@ -35,7 +35,7 @@ function LastFm(props) {
                 { RenderRecentTracks(state.recentTracks) }
             </div>
             <div className="lastfm-user-info">
-                {JSON.stringify(state.userInfo)}
+                { RenderUserInfo(state.userInfo) }
             </div>
         </div>
     );
@@ -86,6 +86,17 @@ function RenderRecentTracks(recentTracks) {
     });
 
     return tracks;
+}
+
+function RenderUserInfo(userInfo) {
+    if (Object.keys(userInfo).length === 0) {
+        return <div></div>;
+    }
+
+    const date = new Date(userInfo.user.registered.unixtime * 1000);
+    return <div>
+        <div>{ `${userInfo.user.playcount} songs played since ${date.getFullYear()}` }</div>
+    </div>;
 }
 
 function TimestampToHumanReadable(timeStamp) {
