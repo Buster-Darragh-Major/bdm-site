@@ -1,11 +1,15 @@
 import "./IconLink.scss";
+import {type FunctionComponent} from "react";
 
-function IconLink(props) {
+const IconLink: FunctionComponent<{ displayName: string, url: string }> = ({
+                                                                               displayName,
+                                                                               url,
+                                                                           }) => {
     return (
-        <a className="icon-link-container" href={props.url} rel="noopener noreferrer" target="_blank">
-            <span>{props.displayName}</span>
+        <a className="icon-link-container" href={url} rel="noopener noreferrer" target="_blank">
+            <span>{displayName}</span>
         </a>
     );
 }
 
-export default IconLink;
+export {IconLink};

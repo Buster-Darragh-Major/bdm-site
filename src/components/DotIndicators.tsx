@@ -1,24 +1,28 @@
 import "./DotIndicators.scss";
 import useScrollVisible from "../hooks/useScrollVisible";
+import {type FunctionComponent, type MouseEventHandler} from "react";
 
+const DotIndicators: FunctionComponent<{
+    elementsContainerId: string,
+    threshold: number,
+    count: number
+}> = ({elementsContainerId, threshold, count}) => {
+    const pos = useScrollVisible(elementsContainerId, threshold);
 
-function DotIndicators(props) {
-    const pos = useScrollVisible(props.elementsContainerId, props.threshold);
-    
-    function dot_onClick(e) {
+    const onClick: MouseEventHandler = (e) => {
         e.preventDefault();
-        const index = e.target.dataset.index;
-        const element = document.getElementById(props.elementsContainerId).children[index];
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        const index = e.target.dataset.index; // TODO: fix this
+        const element = document.getElementById(elementsContainerId)?.children[index];
+        element?.scrollIntoView({behavior: "smooth", block: "start"});
     }
 
     const dots = [];
-    for (let i = 0; i < props.count || 0; i++) {
+    for (let i = 0; i < count || 0; i++) {
         dots.push(
-            <div key={i} 
-                data-index={i}
-                className={`dot-indicator ${pos === i ? "dot-indicator--selected" : ""}`}
-                onClick={dot_onClick}></div>
+            <div key={i}
+                 data-index={i}
+                 className={`dot-indicator ${pos === i ? "dot-indicator--selected" : ""}`}
+                 onClick={onClick}></div>
         );
     }
 
@@ -29,4 +33,4 @@ function DotIndicators(props) {
     );
 }
 
-export default DotIndicators;
+export {DotIndicators};

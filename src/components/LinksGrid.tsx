@@ -1,18 +1,25 @@
 import "./LinksGrid.scss";
-import IconLink from "./IconLink.js";
+import {IconLink} from "./IconLink.js";
+import {type FunctionComponent} from "react";
 
-
-function LinksGrid(props) {
-    const links = props.links.map((link, i) => {
+// TODO: pull out config types into ts types
+const LinksGrid: FunctionComponent<{
+    links: Array<{
+        "displayName": string,
+        "icon": string,
+        "url": string
+    }>
+}> = ({links}) => {
+    const linkElements = links.map((link, i) => {
         return (
-            <IconLink key={i} url={link.url} name={link.name} icon={link.icon} displayName={link.displayName} />
+            <IconLink key={i} url={link.url} displayName={link.displayName}/>
         );
     });
     return (
         <div className="links-grid-container">
-            {links}
+            {linkElements}
         </div>
     );
 }
 
-export default LinksGrid;
+export {LinksGrid};
