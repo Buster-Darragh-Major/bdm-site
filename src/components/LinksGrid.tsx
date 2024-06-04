@@ -1,5 +1,5 @@
 import "./LinksGrid.scss";
-import IconLink from "./IconLink";
+import IconLink from "./IconLink.js";
 
 
 function LinksGrid(props) {

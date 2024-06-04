@@ -1,12 +1,11 @@
 import "./ParallaxBackgroundImages.scss";
-import GetImage from "../ImageSource.js";
-import useScrollPosition from "../hooks/useScrollPosition.js";
+import useScrollPosition from "../hooks/useScrollPosition.tsx";
 
 function ParallaxBackgroundImages(props) {
     const pos = useScrollPosition(props.scrollContainerId, 0.5).position;
-    const image1Src = GetImage(0);
-    const image2Src = GetImage(1);
-    const image3Src = GetImage(2);
+    const image1Src = "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
+    const image2Src = "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
+    const image3Src = "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
 
     return (
         <div className="background-image-container" style={{ "willChange": "transform", "transform": `translateY(${pos}px)` }}>

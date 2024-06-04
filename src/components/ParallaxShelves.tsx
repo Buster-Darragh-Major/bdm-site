@@ -1,6 +1,6 @@
 import "./ParallaxShelves.scss";
-import ParallaxBackgroundImages from "./ParallaxBackgroundImages.js";
-import FillShelves from "./FillShelves.js";
+import ParallaxBackgroundImages from "./ParallaxBackgroundImages.tsx";
+import FillShelves from "./FillShelves.tsx";
 
 function ParallaxShelves(props) {
   const containerID = `parallaxShelves-${props.id}`;

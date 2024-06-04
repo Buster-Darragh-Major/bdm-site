@@ -1,8 +1,8 @@
 import "./ParallaxShelves.scss";
-import TypingTitle from "./TypingTitle.js";
-import LinksGrid from "./LinksGrid.js";
+import TypingTitle from "./TypingTitle.tsx";
+import LinksGrid from "./LinksGrid.tsx";
 import LastFm from "./LastFm";
-import DotIndicators from "./DotIndicators";
+import DotIndicators from "./DotIndicators.js";
 
 function FillShelves(props) {
     const scrollContainerId = props.scrollContainerId;
