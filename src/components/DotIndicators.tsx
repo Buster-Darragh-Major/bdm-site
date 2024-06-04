@@ -12,8 +12,8 @@ function DotIndicators(props) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    var dots = [];
-    for (var i = 0; i < props.count || 0; i++) {
+    const dots = [];
+    for (let i = 0; i < props.count || 0; i++) {
         dots.push(
             <div key={i} 
                 data-index={i}

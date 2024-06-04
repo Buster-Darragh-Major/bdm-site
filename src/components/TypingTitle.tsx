@@ -48,7 +48,7 @@ class TypingTitle extends React.Component {
     }
 
     chooseWord(currentWord) {
-        var otherTitles = currentWord 
+        const otherTitles = currentWord 
             ? this.titles.filter(title => title !== currentWord)
             : this.titles;
         return otherTitles[Math.floor(Math.random()*otherTitles.length)];
@@ -63,7 +63,7 @@ class TypingTitle extends React.Component {
     }
 
     mistype() {
-        var characters = 'abcdefghijklmnopqrstuvwxyz';
+        const characters = 'abcdefghijklmnopqrstuvwxyz';
         return characters[Math.floor(Math.random()*characters.length)];
     }
 
@@ -85,7 +85,7 @@ class TypingTitle extends React.Component {
             // We check because in strict mode react runs setState calls twice.. am I right??
             // Store in object as opposed to state because state tier ID would be replicated,
             // causing multiple calls to api.
-            let tickTimerID = this.tickTimerID;
+            const tickTimerID = this.tickTimerID;
             if (tickTimerID) {
                 return;
             }
@@ -131,11 +131,11 @@ class TypingTitle extends React.Component {
             }
 
             return { 
-                display: display,
-                isTyping: isTyping,
-                currentWord: currentWord,
-                mistype: mistype,
-                deleteMistype: deleteMistype
+                display,
+                isTyping,
+                currentWord,
+                mistype,
+                deleteMistype
             };
         });
     }

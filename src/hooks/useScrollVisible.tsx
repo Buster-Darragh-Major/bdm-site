@@ -4,9 +4,9 @@ export default function useScrollVisible(elementId = "root", threshold = 0.5) {
     const [visible, setVisible] = useState(0);  
     
     useEffect(() => {
-        var observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
-                if(entry.isIntersecting === true) {
+                if(entry.isIntersecting) {
                     const element = entry.target;
                     const parent = element.parentNode;                    
                     const index = Array.prototype.indexOf.call(parent.children, element);
@@ -17,11 +17,11 @@ export default function useScrollVisible(elementId = "root", threshold = 0.5) {
         
         const elementsElement = document.getElementById(elementId);
         const childElements = elementsElement.children;
-        for (var i = 0; i < childElements.length; i++) {
+        for (let i = 0; i < childElements.length; i++) {
             observer.observe(childElements[i]);
         }
         return () => {
-            for (var i = 0; i < childElements.length; i++) {
+            for (let i = 0; i < childElements.length; i++) {
                 observer.disconnect(childElements[i]);
             }
         };

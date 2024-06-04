@@ -5,9 +5,9 @@ export default function useScrollPosition(elementId = "root", scrollFactor = 0) 
     const [position, setPosition] = useState(0);  
 
     useEffect(() => {
-        var element = document.getElementById(elementId);
+        const element = document.getElementById(elementId);
         function onScroll() {
-            var newPos = JSON.stringify({
+            const newPos = JSON.stringify({
                 position: element.scrollTop * -1 * scrollFactor,
                 isTop: element.scrollTop === 0,
                 isBottom: element.scrollHeight - element.scrollTop === element.clientHeight

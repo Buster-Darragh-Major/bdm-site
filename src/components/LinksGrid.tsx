@@ -3,7 +3,7 @@ import IconLink from "./IconLink.js";
 
 
 function LinksGrid(props) {
-    var links = props.links.map((link, i) => {
+    const links = props.links.map((link, i) => {
         return (
             <IconLink key={i} url={link.url} name={link.name} icon={link.icon} displayName={link.displayName} />
         );

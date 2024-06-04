@@ -2,7 +2,7 @@ import "./LastFm.scss";
 import React, { useState } from "react";
 
 function LastFm(props) {
-    let defaultObject = {
+    const defaultObject = {
         topAlbums: [],
         userInfo: {},
         recentTracks: []
@@ -21,7 +21,7 @@ function LastFm(props) {
     }
     if (Object.keys(state.userInfo).length === 0) {
         GetUserInfo().then(userInfo => {
-            setState(state => ({ ...state, userInfo: userInfo }));
+            setState(state => ({ ...state, userInfo }));
         });
     }
 
@@ -44,7 +44,7 @@ function LastFm(props) {
 // private functions
 
 function RenderAlbums(topAlbums) {
-    let albums = [];
+    const albums = [];
     topAlbums.forEach((topAlbum, i) => {
         albums.push(
             <div className="grid-tile" key={i}>
@@ -67,10 +67,10 @@ function RenderAlbums(topAlbums) {
 }
 
 function RenderRecentTracks(recentTracks) {
-    let tracks = [];
+    const tracks = [];
 
     recentTracks.forEach((track, i) => {
-        let nowPlaying = track["@attr"]?.nowplaying;
+        const nowPlaying = track["@attr"]?.nowplaying;
         tracks.push(
             <a key={i} className="lastfm-song link-remove-underline" href={track.url} rel="noopener noreferrer" target="_blank">
                 <div className="lastfm-img-container">
@@ -103,7 +103,7 @@ function TimestampToHumanReadable(timeStamp) {
     const nowSecs = Math.floor(Date.now() / 1000);
     const diffSecs = nowSecs - timeStamp;
 
-    let representations = [
+    const representations = [
         { label: "year", value: Math.floor(diffSecs / 31536000) },
         { label: "month", value: Math.floor(diffSecs / 2628288) },
         { label: "week", value: Math.floor(diffSecs / 604800) },
@@ -113,25 +113,25 @@ function TimestampToHumanReadable(timeStamp) {
         { label: "second", value: diffSecs }
     ];
 
-    let renderedRep = representations.find(rep => rep.value > 0);
+    const renderedRep = representations.find(rep => rep.value > 0);
     return `${renderedRep.value} ${renderedRep.label}${renderedRep.value > 1 ? "s" : ""} ago`;
 }
 
-function GetAlbums() {
-    return fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json&period=1month&limit=12");
+async function GetAlbums() {
+    return await fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json&period=1month&limit=12");
 }
 
-function GetRecentTracks() {
-    return fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json&limit=3");
+async function GetRecentTracks() {
+    return await fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json&limit=3");
 }
 
-function GetUserInfo() {
-    return fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json");
+async function GetUserInfo() {
+    return await fetchJson("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=repoman63&api_key=d22b78878dae20222165cbca4b0ef8d2&format=json");
 }
 
-function fetchJson(url) {
-    return fetch(url).then(response => {
-        return response.json();
+async function fetchJson(url) {
+    return await fetch(url).then(async response => {
+        return await response.json();
     });
 }
 
